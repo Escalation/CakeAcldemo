@@ -53,4 +53,5 @@ class Group extends AppModel {
 		)
 	);
 
+    //added amu groupusers and run cake acl create aco root controllers
 }
