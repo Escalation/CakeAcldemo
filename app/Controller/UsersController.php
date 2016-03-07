@@ -13,7 +13,11 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Auth',
+		'Session',
+		'Cookie',
+		'Paginator',
+		'Security',);
 
 /**
  * index method
@@ -105,4 +109,42 @@ class UsersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+    ///////////////////////////////////
+    public function login() {
+    if ($this->request->is('post')) {
+        if ($this->Auth->login()) {
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+        $this->Session->setFlash(__('Your username or password was incorrect.'));
+    }
+    /*
+    if ($this->Session->read('Auth.User')) {
+        $this->Session->setFlash('You are logged in!');
+        return $this->redirect('/');
+    }
+    */
+}
+    public function logout() {
+        /*
+		$user = $this->Auth->user();
+		$this->Session->destroy();
+		$this->RememberMe->destroyCookie();
+		$this->Session->setFlash(sprintf(__d('users', '%s you have successfully logged out'), $user[$this->{$this->modelClass}->displayField]));
+		$this->redirect($this->Auth->logout());
+        */
+        $this->Session->setFlash('Good-Bye');
+        $this->redirect($this->Auth->logout());
+	}
+
+    ////////////////////////////////////
+    public function beforeFilter() {
+    parent::beforeFilter();
+
+    // For CakePHP 2.0
+    //$this->Auth->allow('*');
+
+    // For CakePHP 2.1 and up
+    $this->Auth->allow();
+}
+
 }
