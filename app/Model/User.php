@@ -8,7 +8,9 @@ App::uses('AuthComponent', 'Controller/Component');
  * @property Post $Post
  */
 class User extends AppModel {
-
+    public function bindNode($user) {
+    return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
+    }
 /**
  * Validation rules
  *
@@ -66,7 +68,8 @@ class User extends AppModel {
 	);
 */
 public $belongsTo = array('Group');
-    public $actsAs = array('Acl' => array('type' => 'requester'));
+    //public $actsAs = array('Acl' => array('type' => 'requester'));
+    public $actsAs = array('Acl' => array('type' => 'requester', 'enabled' => false));
 
     public function parentNode() {
         if (!$this->id && empty($this->data)) {
