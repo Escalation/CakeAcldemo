@@ -31,7 +31,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $components = array(
+   public $components = array(
         'Acl',
         'Auth' => array(
             'authorize' => array(
@@ -40,9 +40,12 @@ class AppController extends Controller {
         ),
         'Session'
     );
+    //
+    //
     public $helpers = array('Html', 'Form', 'Session');
 
     public function beforeFilter() {
+        $this->Auth->allow('display');
         //Configure AuthComponent
         $this->Auth->loginAction = array(
           'controller' => 'users',
@@ -56,9 +59,5 @@ class AppController extends Controller {
           'controller' => 'posts',
           'action' => 'add'
         );
-        //This makes the display action public
-        //This will keep our PagesController::display() public
-        //This is important as often the default routing has this action as the home page for your application
-        $this->Auth->allow('display');//aspartondoc///////****////
     }
 }

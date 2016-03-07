@@ -6,11 +6,6 @@ App::uses('AppModel', 'Model');
  * @property User $User
  */
 class Group extends AppModel {
-    public $actsAs = array('Acl' => array('type' => 'requester'));
-
-    public function parentNode() {
-        return null;
-    }
 
 /**
  * Validation rules
@@ -53,5 +48,9 @@ class Group extends AppModel {
 		)
 	);
 
-    //added amu groupusers and run cake acl create aco root controllers
+    public $actsAs = array('Acl' => array('type' => 'requester'));
+
+    public function parentNode() {
+        return null;
+    }
 }

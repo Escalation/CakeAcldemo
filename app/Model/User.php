@@ -8,9 +8,8 @@ App::uses('AuthComponent', 'Controller/Component');
  * @property Post $Post
  */
 class User extends AppModel {
-    public function bindNode($user) {
-    return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
-    }
+    
+
 /**
  * Validation rules
  *
@@ -56,7 +55,6 @@ class User extends AppModel {
  *
  * @var array
  */
- /****
 	public $belongsTo = array(
 		'Group' => array(
 			'className' => 'Group',
@@ -66,10 +64,8 @@ class User extends AppModel {
 			'order' => ''
 		)
 	);
-*/
-public $belongsTo = array('Group');
-    //public $actsAs = array('Acl' => array('type' => 'requester'));
-    public $actsAs = array('Acl' => array('type' => 'requester', 'enabled' => false));
+//
+public $actsAs = array('Acl' => array('type' => 'requester', 'enabled' => false));
 
     public function parentNode() {
         if (!$this->id && empty($this->data)) {
@@ -85,7 +81,6 @@ public $belongsTo = array('Group');
         }
         return array('Group' => array('id' => $groupId));
     }
-
 
 /**
  * hasMany associations
@@ -107,12 +102,14 @@ public $belongsTo = array('Group');
 			'counterQuery' => ''
 		)
 	);
-
-    ////////////////////////
+    public function bindNode($user) {
+    return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
+    }
     public function beforeSave($options = array()) {
         $this->data['User']['password'] = AuthComponent::password(
           $this->data['User']['password']
         );
         return true;
     }
+
 }
