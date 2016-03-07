@@ -119,19 +119,20 @@ class UsersController extends AppController {
         $this->Session->setFlash(__('Your username or password was incorrect.'));
     }
     */
+    
     public function login() {
-    if ($this->Session->read('Auth.User')) {
-        $this->Session->setFlash('You are logged in!');
-        return $this->redirect('/');
+    if ($this->request->is('post')) {
+        if ($this->Auth->login()) {
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+         $this->Session->setFlash(__('Your username or password was incorrect.'));
+       }
+        if ($this->Session->read('Auth.User')) {
+            $this->Session->setFlash('You are logged in!');
+            return $this->redirect('/');
+        }
+    
     }
-
-    /*
-    if ($this->Session->read('Auth.User')) {
-        $this->Session->setFlash('You are logged in!');
-        return $this->redirect('/');
-    }
-    */
-}
     public function logout() {
         /*
 		$user = $this->Auth->user();
@@ -148,8 +149,10 @@ class UsersController extends AppController {
     public function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->allow();//
-     $this->Auth->allow('initDB'); // We can remove this line after we're finished
+     //$this->Auth->allow('initDB'); // We can remove this line after we're finished
+     
     }
+    
     ///***********************************
         public function initDB() {
         $group = $this->User->Group;
@@ -181,4 +184,5 @@ class UsersController extends AppController {
         }
         ///magic climax on Acl
         //http://localhost:57100/users/initdb
+        
 }
