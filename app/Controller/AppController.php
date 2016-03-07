@@ -56,5 +56,9 @@ class AppController extends Controller {
           'controller' => 'posts',
           'action' => 'add'
         );
+        //This makes the display action public
+        //This will keep our PagesController::display() public
+        //This is important as often the default routing has this action as the home page for your application
+        $this->Auth->allow('display');//aspartondoc///////****////
     }
 }

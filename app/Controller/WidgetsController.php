@@ -101,4 +101,11 @@ class WidgetsController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+    /////
+    //This allows non-authorized users to view these pages
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('index', 'view');
+    }
 }

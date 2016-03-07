@@ -110,6 +110,7 @@ class UsersController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
     ///////////////////////////////////
+    /*
     public function login() {
     if ($this->request->is('post')) {
         if ($this->Auth->login()) {
@@ -117,6 +118,13 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('Your username or password was incorrect.'));
     }
+    */
+    public function login() {
+    if ($this->Session->read('Auth.User')) {
+        $this->Session->setFlash('You are logged in!');
+        return $this->redirect('/');
+    }
+
     /*
     if ($this->Session->read('Auth.User')) {
         $this->Session->setFlash('You are logged in!');
