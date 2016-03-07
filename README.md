@@ -1,43 +1,54 @@
 CakePHP
 =======
+!cake AclExtras.AclExtras aco_sync
+!populated your acos table proceed to create your application permissions.
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+To see help on a subcommand use `cake acl_extras.acl_extras [subcommand] --help`
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+Options:
 
-Some Handy Links
-----------------
+--help, -h     Display this help.
+--verbose, -v  Enable verbose output.
+--quiet, -q    Enable quiet output.
 
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
 
-[CookBook](http://book.cakephp.org) - THE CakePHP user documentation; start learning here!
+PS C:\Users\srira\Documents\My Web Sites\CakeAcldemo\app> .\Console\cake AclExtras.AclExtras aco_sync
 
-[API](http://api.cakephp.org) - A reference to CakePHP's classes
 
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
+Welcome to CakePHP v2.5.1 Console
+---------------------------------------------------------------
+App : app
+Path: C:\Users\srira\Documents\My Web Sites\CakeAcldemo\app\
+---------------------------------------------------------------
+Created Aco node: controllers/Groups
+Created Aco node: controllers/Groups/index
+Created Aco node: controllers/Groups/view
+Created Aco node: controllers/Groups/add
+Created Aco node: controllers/Groups/edit
+Created Aco node: controllers/Groups/delete
+Created Aco node: controllers/Pages
+Created Aco node: controllers/Pages/display
+Created Aco node: controllers/Posts
+Created Aco node: controllers/Posts/index
+Created Aco node: controllers/Posts/view
+Created Aco node: controllers/Posts/add
+Created Aco node: controllers/Posts/edit
+Created Aco node: controllers/Posts/delete
+Created Aco node: controllers/Users
+Created Aco node: controllers/Users/index
+Created Aco node: controllers/Users/view
+Created Aco node: controllers/Users/add
+Created Aco node: controllers/Users/edit
+Created Aco node: controllers/Users/delete
+Created Aco node: controllers/Users/login
+Created Aco node: controllers/Users/logout
+Created Aco node: controllers/Widgets
+Created Aco node: controllers/Widgets/index
+Created Aco node: controllers/Widgets/view
+Created Aco node: controllers/Widgets/add
+Created Aco node: controllers/Widgets/edit
+Created Aco node: controllers/Widgets/delete
+Created Aco node: controllers/AclExtras
+Aco Update Complete
 
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
-
-[Community Center](http://community.cakephp.org) - A source for everything community related
-
-[Training](http://training.cakephp.org) - Join a live session and get skilled with the framework
-
-[CakeFest](http://cakefest.org) - Don't miss our annual CakePHP conference
-
-[Cake Software Foundation](http://cakefoundation.org) - Promoting development related to CakePHP
-
-Get Support!
-------------
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake
-
-[Google Group](https://groups.google.com/group/cake-php) - Community mailing list and forum
-
-[GitHub Issues](https://github.com/cakephp/cakephp/issues) - Got issues? Please tell us!
-
-[Roadmaps](https://github.com/cakephp/cakephp/wiki#roadmaps) - Want to contribute? Get involved!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
-
-![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+PS C:\Users\srira\Documents\My Web Sites\CakeAcldemo\app>
